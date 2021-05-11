@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "tutorial",
   "scripts": {
-    "build:dev": "webpack --config webpack.config.js",
-    "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
-    "start": "env NODE_ENV=development webpack-dev-server"
+    "build:dev": "webpack --env.development --config webpack.config.js",
+    "build:prod": "webpack --env.production --config webpack.config.js",
+    "start": "webpack-dev-server"
   },
   "main": "index.js",
   "repository": "https://github.com/pavel-sobchenko/react_marathon.git",
