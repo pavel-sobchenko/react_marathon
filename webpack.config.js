@@ -12,7 +12,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
   },
-  module: {
+	watch: true,
+	watchOptions: {
+		ignored: /node_modules/,
+		poll: 1000
+	},
+	module: {
     rules: [
       {
         test: /\.[tj]sx?$/,
@@ -41,6 +46,10 @@ module.exports = {
           'sass-loader',
         ],
       },
+		{
+			test: /\.svg$/,
+			use: ['@svgr/webpack', 'url-loader']
+		}
     ],
   },
   plugins: [
