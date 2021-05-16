@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import s from './Parallax.module.scss';
 
-import PokeballPng from './assets/pokeball1.png';
-import CloudPng1 from './assets/cloud1.png';
-import CloudPng2 from './assets/cloud2.png';
+import PokeballPng from './assets/pokeball2.png';
+import CloudPng1 from './assets/cloud3.png';
 import PikachuPng from './assets/pikachu.png';
 
 const Parallax: React.FC = ({children}) => {
@@ -29,19 +28,13 @@ const Parallax: React.FC = ({children}) => {
           style={{
               transform: `translate(${screenY*0.03}px, ${screenX*0.03}px)`
           }}>
-          <img src={PokeballPng} alt="Pokeball"/>
+          <img className={s.pokeball} src={PokeballPng} alt="Pokeball"/>
         </div>
         <div
           style={{
               transform: `translate(${screenY*0.02}px, ${screenX*0.02}px)`
           }}>
-          <img src={CloudPng1} alt="CloudPng1"/>
-        </div>
-        <div
-          style={{
-              transform: `translate(${screenY*0.04}px, ${screenX*0.04}px)`
-          }}>
-          <img src={CloudPng2} alt="CloudPng2"/>
+          <img className={s.cloud} src={CloudPng1} alt="CloudPng1"/>
         </div>
         <div
           style={{
