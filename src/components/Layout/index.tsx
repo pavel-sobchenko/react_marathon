@@ -4,14 +4,15 @@ import Parallax from '../Parallax/intex';
 import { ButtonColor, ButtonSize } from '../Button/Button.Interface';
 
 import s from './Layout.module.scss';
+import Heading from '../Heading';
 
 const Layout: React.FC = ({children}) => {
     return (
       <div className={s.root}>
           <div className={s.left}>
-              <h1>
+              <Heading scale={'h1'}>
                   <b>Find</b> all your favorite <b>Pokemon</b>
-              </h1>
+              </Heading>
               <p>You can know the type of Pokemon</p>
               <Button
                 onClick={() => {console.log("Click Button!")}}
