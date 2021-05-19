@@ -27,12 +27,11 @@ function renderSwitch(scale: string, text: any) {
     }
 }
 
+
+
 const Heading: React.FC<IHeading> = ({children, scale}) => {
-    return (
-      <div>
-          {renderSwitch(scale, children)}
-      </div>
-    );
+    const Tag = `${scale}` as keyof JSX.IntrinsicElements;
+    return <Tag>{children}</Tag>
 };
 
 export default Heading;

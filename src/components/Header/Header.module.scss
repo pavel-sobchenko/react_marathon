@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(45deg, black, gold);;
 }
 
 .wrap {
@@ -59,6 +60,10 @@
       opacity: 1;
     }
   }
+}
+
+.activeLink {
+    color: blue;
 }
 
 
