@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({children, onClick, size, color}) => {
     return (
       <button
         type="button"
-        className={[s.root, size, color].join(' ')}
+        className={[s.root, s[size], s[color]].join(' ')}
         onClick={onClick}
       >
           {children}
