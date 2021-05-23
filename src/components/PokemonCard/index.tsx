@@ -26,7 +26,9 @@ const PokemonCard: React.FC<IPokemonDescription> = (item) => {
                   </div>
               </div>
               <div className={s.labelWrap}>
-                  <span className={s.label}>{item.types.join(',')}</span>
+                  {item.types.map(i => {
+                      return <span key={i.toString()} className={s.label}>{i}</span>
+                  })}
               </div>
           </div>
           <div className={s.pictureWrap}>
