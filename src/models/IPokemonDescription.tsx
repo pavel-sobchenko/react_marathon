@@ -1,5 +1,10 @@
 export interface IStatistic {
-    [i: string]: number;
+    hp: number;
+    attack: number;
+    defense: number;
+    ["special-attack"]: number;
+    ["special-defense"]: number;
+    speed: number;
 }
 
 export interface IPokemonDescription {

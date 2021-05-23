@@ -1,4 +1,6 @@
-export const pokemons = [
+import {IPokemonDescription} from '../models/IPokemonDescription'
+
+export const pokemons: IPokemonDescription[]  = [
 	{
 		"name_clean": "bulbasaur",
 		"abilities": [
