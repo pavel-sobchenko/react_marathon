@@ -1,6 +1,6 @@
 import config from '../config';
 
-function getUrlWithParamConfig(endpoint: string) {
+function getUrlWithParamConfig(endpoint: string, query: object) {
     let url = {
         ...config.client.server,
         ...config.client.endpoint[endpoint].uri
