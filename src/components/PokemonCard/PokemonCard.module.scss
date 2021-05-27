@@ -17,8 +17,8 @@
 }
 
 .root_simple {
-  width: 500px;
-  height: 300px;
+  width: 310px;
+  height: 380px;
   box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
   background: #F6F7F9;
   border-radius: 8px;
@@ -43,11 +43,12 @@
 
 .infoWrap_simple {
   display: flex;
-  position: absolute;
-  z-index: 1;
-  width: 150px;
-  top: 6px;
-  left: 25px;
+  flex-direction: column-reverse;
+  border: 5px solid firebrick;
+}
+
+.heading_container {
+  margin: 0 auto;
 }
 
 h1, h1, h3, h4, h5, h6 {

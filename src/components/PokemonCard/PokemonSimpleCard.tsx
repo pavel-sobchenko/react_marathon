@@ -1,23 +1,29 @@
 import React from 'react';
 import Heading from "../Heading";
+import { A, navigate, usePath } from 'hookrouter';
 
 import s from './PokemonCard.module.scss';
 import { IPokemonDescription } from '../../models/IPokemonDescription';
+import { LinkEnum } from '../../../routes';
 
 export interface IPokemonSimple {
     name: string;
+    url: string;
+    index: number;
 }
 
 const PokemonSimpleCard: React.FC<IPokemonSimple> = (item) => {
     return (
       <div className={s.root_simple}>
           <div className={s.infoWrap_simple}>
-              <Heading scale={'h2'}>
-                  {item.name[0].toUpperCase() + item.name.slice(1)}
-              </Heading>
-              <a href={`https://www.pokemon.com/us/pokedex/${item.name}`} target="_blank" rel="noreferrer">
-                  <img className={s.pictureWrap_simple} alt="pokemon" src={`https://img.pokemondb.net/artwork/large/${item.name}.jpg`}/>
-              </a>
+              <div className={s.heading_container}>
+                  <Heading scale={'h2'}>
+                      {item.name[0].toUpperCase() + item.name.slice(1)}
+                  </Heading>
+              </div>
+              <div onClick={() => navigate(`/pokedex/${item.index}`)}>
+                 <img className={s.pictureWrap_simple} alt="pokemon" src={`https://img.pokemondb.net/artwork/large/${item.name}.jpg`}/>
+              </div>
           </div>
       </div>
     );
