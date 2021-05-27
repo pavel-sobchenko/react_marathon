@@ -1,4 +1,4 @@
 export interface IQuery {
-    limit: number;
+    limit?: number;
     name?: string;
 }

@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { EmptyPageProps } from '../../components/EmptyPage';
 import Heading from '../../components/Heading';
 import useData from '../../hooks/useData';
 import { IQuery } from '../../models/IQuery';
 import useDebounce from '../../hooks/useDebounce';
 import { IPokemon } from '../../models/IPokemon';
+import PokemonCard from '../../components/PokemonCard';
+import PokemonSimpleCard, { IPokemonSimple } from '../../components/PokemonCard/PokemonSimpleCard';
 
 const Pokedex: React.FC<EmptyPageProps> = () => {
-
     const [searchValue, setSearchValue] = useState('');
-    const [query, setQuery] = useState<IQuery>({limit: 12});
+    const [query, setQuery] = useState<IQuery>({limit: 20});
     const debouncedValue = useDebounce(searchValue, 500);
     //const { data, isLoading, isError} = useData();
-    const { data, isLoading, isError} = useData<IPokemon>('getPokemons', query, [debouncedValue]);
+    const { data, isLoading, isError} = useData<IPokemon>('getPokemons', query, [searchValue]);
 
 
-    /*useEffect(() => {
-        console.log('####: debouncedValue', debouncedValue);
-    }, [debouncedValue]);
-*/
     if (isLoading) {
         return <div>Loading...</div>
     }
@@ -36,6 +33,7 @@ const Pokedex: React.FC<EmptyPageProps> = () => {
     };*/
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('#####: e', e);
         setSearchValue(e.target.value);
         setQuery((state: IQuery) => ({
             ...state,
@@ -46,14 +44,16 @@ const Pokedex: React.FC<EmptyPageProps> = () => {
     return (
       <>
             <Heading scale={'h1'}>
-                {data && data.count} <b>Pokemons</b> for you to choose your favorite
+                {!isLoading && data && data.count} <b>Pokemons</b> for you to choose your favorite
             </Heading>
           <div>
               <input type="text" value={searchValue} onChange={handleSearchChange}/>
           </div>
-          <div>
-              {data && data.results.map(item => <div key={item.name}>{item.name}</div>)}
+
+           <div>
+              {!isLoading && data && data.results.map(item => <PokemonSimpleCard key={item.name} {...item}/>)}
           </div>
+
       </>
     )
 };
