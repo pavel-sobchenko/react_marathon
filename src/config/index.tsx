@@ -16,6 +16,24 @@ export const config = {
                 uri: {
                     pathname: '/api/v2/pokemon/{id}'
                 }
+            },
+            createPokemon: {
+                method: 'POST',
+                uri: {
+                    pathname: '/api/v2/pokemon/create'
+                }
+            },
+            updatePokemon: {
+                method: 'PATCH',
+                uri: {
+                    pathname: '/api/v2/pokemon/{id}'
+                }
+            },
+            deletePokemon: {
+                method: 'DELETE',
+                uri: {
+                    pathname: '/api/v2/pokemon/{id}/delete'
+                }
             }
         }
     }
