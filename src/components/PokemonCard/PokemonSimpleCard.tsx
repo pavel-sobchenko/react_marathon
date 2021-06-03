@@ -1,10 +1,8 @@
 import React from 'react';
 import Heading from "../Heading";
-import { A, navigate, usePath, useQueryParams } from 'hookrouter';
-
+// @ts-ignore
+import { navigate } from 'hookrouter';
 import s from './PokemonCard.module.scss';
-import { IPokemonDescription } from '../../models/IPokemonDescription';
-import { LinkEnum } from '../../../routes';
 
 export interface IPokemonSimple {
     name: string;

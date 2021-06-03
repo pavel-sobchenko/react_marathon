@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Button';
 import Parallax from '../Parallax/intex';
+// @ts-ignore
 import {navigate} from 'hookrouter';
 import { ButtonColor, ButtonSize } from '../Button/Button.Interface';
 

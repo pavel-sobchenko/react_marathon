@@ -1,5 +1,6 @@
 import React from 'react';
 import StandaloneCard from '../../components/PokemonCard/StandaloneCard';
+// @ts-ignore
 import {useQueryParams } from 'hookrouter';
 
 export interface PokemonProps {
