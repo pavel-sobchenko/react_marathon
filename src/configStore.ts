@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'development') {
 
     if (typeof devToolExtension === 'function') {
         // @ts-ignore
-        enhancers.push(devToolExtension(({})))
+        enhancers.push(devToolExtension());
     }
 }
 

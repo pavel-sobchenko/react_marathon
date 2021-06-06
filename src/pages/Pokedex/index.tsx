@@ -7,14 +7,23 @@ import useDebounce from '../../hooks/useDebounce';
 import { IPokemon } from '../../models/IPokemon';
 import s from './Pokedex.module.scss';
 import PokemonSimpleCard, { IPokemonSimple } from '../../components/PokemonCard/PokemonSimpleCard';
+import { useDispatch, useSelector } from 'react-redux';
+import pokemons, { getPokemonsTypes, getPokemonsTypesLoading, getTypesAction } from '../../store/pokemon';
 
 const Pokedex: React.FC<EmptyPageProps> = () => {
+    const dispatch = useDispatch();
+    const types = useSelector(getPokemonsTypes);
+    const isTypesLoading = useSelector(getPokemonsTypesLoading);
+    console.log('### types: ', types);
     const [searchValue, setSearchValue] = useState('');
     const [query, setQuery] = useState<IQuery>({limit: 10});
     const debouncedValue = useDebounce(searchValue, 500);
-    //const { data, isLoading, isError} = useData();
+
     const { data, isLoading, isError} = useData<IPokemon>('getPokemons', query, [searchValue]);
 
+    useEffect(() => {
+        dispatch(getTypesAction());
+    }, []);
 
 
     if (isLoading) {
@@ -47,7 +56,11 @@ const Pokedex: React.FC<EmptyPageProps> = () => {
           <div>
               <input className={s.search} type="text" value={searchValue} onChange={handleSearchChange}/>
           </div>
-
+            <div>
+                {
+                    isTypesLoading ? '...Loading' : types.map((item: any) => <div>{item}</div>)
+                }
+            </div>
            <div className={s.root}>
               {!isLoading && data && data.results.map((item, index) => {
                   item['index'] = index;

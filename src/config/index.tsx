@@ -34,6 +34,12 @@ export const config = {
                 uri: {
                     pathname: '/api/v2/pokemon/{id}/delete'
                 }
+            },
+            getPokemonTypes: {
+                method: 'GET',
+                uri: {
+                    pathname: '/api/v2/type/{id}'
+                }
             }
         }
     }

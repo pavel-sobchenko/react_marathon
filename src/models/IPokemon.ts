@@ -10,3 +10,5 @@ export interface IPokemon {
       ]
 };
 
+export type ITypesRequest = string[];
+

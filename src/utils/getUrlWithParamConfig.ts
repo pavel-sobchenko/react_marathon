@@ -32,8 +32,8 @@ function getUrlWithParamConfig(endpoint: string, params: any) {
     };
 
     const pathname = Object.keys(query).reduce((acc,val) =>{
-        if(acc.indexOf(`{${val}`) !== -1) {
-            const result = acc.replace(`{${val}`, query[val as keyof typeof query]);
+        if(acc.indexOf(`{${val}}`) !== -1) {
+            const result = acc.replace(`{${val}}`, query[val as keyof typeof query]);
             delete query[val as keyof typeof query];
             return result;
         }
