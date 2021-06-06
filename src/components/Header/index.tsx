@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import {A, usePath} from 'hookrouter';
 import s from './Header.module.scss'
 import cn from 'classnames';
@@ -37,4 +38,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default React.memo(Header);

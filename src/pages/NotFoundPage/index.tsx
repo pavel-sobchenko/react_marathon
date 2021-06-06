@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button';
+// @ts-ignore
 import {navigate} from 'hookrouter';
 import { ButtonColor, ButtonSize } from '../../components/Button/Button.Interface';
 import { LinkEnum } from '../../../routes';
